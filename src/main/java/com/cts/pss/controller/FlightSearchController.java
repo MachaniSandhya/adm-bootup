@@ -29,6 +29,8 @@ public class FlightSearchController {
 		return service.findAllFlightsByAirelineAndDate(airLine, ld);
 	}
 
+	
+	
 	@RequestMapping("/{origin}")
 	public List<Flight> getAllFlightsByOriginAndDate(@PathVariable("origin") String origin,
 			@RequestParam("date") String date) {
@@ -60,22 +62,6 @@ public class FlightSearchController {
 		return service.getFlightNumberAndFlightDateAndFlightTime(flightNumber, ldate, localTime);
 	}
 	
-	@RequestMapping(name="/flights",method=RequestMethod.POST)
-	public List<Flight> getFlightsToANdFrowWithDateTime(@RequestAttribute("origin")String origin, @RequestAttribute("dest")String destination,
-			@RequestAttribute("dteval")String flightDate,@RequestAttribute("tmeval") String flightTime){
-		LocalDate ldate = LocalDate.parse(flightDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-		String[] arr = flightTime.split(":");
-		int hr = 0;
-		int mm = 0;
-		int ss = 0;
-		LocalTime localTime = null;
-		if (arr.length == 3) {
-			hr = Integer.parseInt(arr[0]);
-			mm = Integer.parseInt(arr[1]);
-			ss = Integer.parseInt(arr[2]);
-			localTime = LocalTime.of(hr, mm, ss);
-		}
-		return service.getFlightsOrgDesDateTime(origin, destination, ldate, localTime);
-	}
+	
 
 }

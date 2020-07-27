@@ -5,8 +5,8 @@
 </head>
 <body>
 
-	<h2>Employee Details</h2>
-	<form method="post" action="/search/flights">
+	<h2>Enter Search Details</h2>
+	<form method="post" action="/view/flights" >
 		<table>
 			<tr>
 				<td>Enter Origin</td>
@@ -19,11 +19,11 @@
 			</tr>
 			<tr>
 				<td>Enter Date</td>
-				<td><input type="text" name="dteval" value="2020-08-21" /></td>
+				<td><input type="text" name="date" value="2020-08-21" /></td>
 			</tr>
 			<tr>
 				<td>Enter Time</td>
-				<td><input type="text" name="tmeval" value="01:15:00"></td>
+				<td><input type="text" name="time" value="01:15:00"></td>
 			</tr>
 			<tr>
 				<td><input type="submit" value="Submit"></td>

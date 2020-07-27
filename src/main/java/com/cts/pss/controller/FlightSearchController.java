@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.cts.pss.entities.Flight;
@@ -56,6 +58,24 @@ public class FlightSearchController {
 			localTime = LocalTime.of(hr, mm, ss);
 		}
 		return service.getFlightNumberAndFlightDateAndFlightTime(flightNumber, ldate, localTime);
+	}
+	
+	@RequestMapping(name="/flights",method=RequestMethod.POST)
+	public List<Flight> getFlightsToANdFrowWithDateTime(@RequestAttribute("origin")String origin, @RequestAttribute("dest")String destination,
+			@RequestAttribute("dteval")String flightDate,@RequestAttribute("tmeval") String flightTime){
+		LocalDate ldate = LocalDate.parse(flightDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+		String[] arr = flightTime.split(":");
+		int hr = 0;
+		int mm = 0;
+		int ss = 0;
+		LocalTime localTime = null;
+		if (arr.length == 3) {
+			hr = Integer.parseInt(arr[0]);
+			mm = Integer.parseInt(arr[1]);
+			ss = Integer.parseInt(arr[2]);
+			localTime = LocalTime.of(hr, mm, ss);
+		}
+		return service.getFlightsOrgDesDateTime(origin, destination, ldate, localTime);
 	}
 
 }

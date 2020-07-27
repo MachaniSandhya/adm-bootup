@@ -47,4 +47,8 @@ public class FlightSearchService {
 	public Flight getFlightNumberAndFlightDateAndFlightTime(String flightNumber,LocalDate flightDate,LocalTime flightTime) {
 		return flightDao.findByFlightNumberAndFlightDateAndFlightTime(flightNumber, flightDate, flightTime);
 	}
+	
+	public List<Flight> getFlightsOrgDesDateTime(String origin, String destination,LocalDate flightDate, LocalTime flightTime){
+		return flightDao.findAllByOriginAndDestinationAndFlightDateAndFlightTime(origin, destination, flightDate, flightTime);
+	}
 }

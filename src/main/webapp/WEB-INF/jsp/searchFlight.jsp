@@ -6,7 +6,7 @@
 <body>
 
 	<h2>Enter Search Details</h2>
-	<form method="post" action="/view/flights" >
+	<form method="post" action="/view/flight" >
 		<table>
 			<tr>
 				<td>Enter Origin</td>

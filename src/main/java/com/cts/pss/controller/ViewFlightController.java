@@ -3,21 +3,19 @@ package com.cts.pss.controller;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.cts.pss.dto.Search;
 import com.cts.pss.entities.Flight;
 import com.cts.pss.services.FlightSearchService;
 
-@RestController
+@Controller
 @RequestMapping("/view")
 public class ViewFlightController {
 
@@ -25,7 +23,7 @@ public class ViewFlightController {
 	private FlightSearchService service;
 
 	@RequestMapping(value = "/flight", method = { RequestMethod.POST })
-	public List<Flight> postFlightsToANdFrowWithDateTime(@RequestParam("origin") String origin,
+	public ModelAndView postFlightsToANdFrowWithDateTime(@RequestParam("origin") String origin,
 			@RequestParam("dest") String destination, @RequestParam("date") String flightDate,
 			@RequestParam("time") String flightTime) {
 		System.out.println("TestData");
@@ -41,7 +39,13 @@ public class ViewFlightController {
 			ss = Integer.parseInt(arr[2]);
 			localTime = LocalTime.of(hr, mm, ss);
 		}
-		return service.getFlightsOrgDesDateTime(origin, destination, ldate, localTime);
+		List<Flight> empList = service.getFlightsOrgDesDateTime(origin, destination, ldate, localTime);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("fltlist", empList);
+		mav.setViewName("viewFlights");
+		System.out.println(empList.get(0).getDuration());
+		
+		return mav;
 	}
 
 	/*

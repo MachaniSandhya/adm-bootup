@@ -43,12 +43,28 @@ public class FlightSearchService {
 	public List<Flight> getAllFlightsByFlightNumAndOrigin(String flightNum, String origin) {
 		return flightDao.findAllByFlightNumberAndOrigin(flightNum, origin);
 	}
-	
-	public Flight getFlightNumberAndFlightDateAndFlightTime(String flightNumber,LocalDate flightDate,LocalTime flightTime) {
+
+	public List<Flight> getAllFlightsByFlightNumAndOriginAndDest(String flightNum, String origin, String dest) {
+		return flightDao.findAllByFlightNumberAndOriginAndDestination(flightNum, origin, dest);
+	}
+
+	public Flight getFlightNumberAndFlightDateAndFlightTime(String flightNumber, LocalDate flightDate,
+			LocalTime flightTime) {
 		return flightDao.findByFlightNumberAndFlightDateAndFlightTime(flightNumber, flightDate, flightTime);
 	}
+
+	public List<Flight> getFlightsOrgDesDateTime(String origin, String destination, LocalDate flightDate,
+			LocalTime flightTime) {
+		return flightDao.findAllByOriginAndDestinationAndFlightDateAndFlightTime(origin, destination, flightDate,
+				flightTime);
+	}
+
+	public List<Flight> getFlightsOrgDesDate(String origin, String destination, LocalDate flightDate) {
+		return flightDao.findAllByOriginAndDestinationAndFlightDate(origin, destination, flightDate);
+	}
 	
-	public List<Flight> getFlightsOrgDesDateTime(String origin, String destination,LocalDate flightDate, LocalTime flightTime){
-		return flightDao.findAllByOriginAndDestinationAndFlightDateAndFlightTime(origin, destination, flightDate, flightTime);
+	public List<Flight> getFlightsOrgDesDateOrderByPrice(String origin, String destination, LocalDate flightDate) {
+		System.out.println("Price_method_service");
+		return flightDao.findAllByOriginAndDestinationAndFlightDateOrderByFareFare(origin, destination, flightDate);
 	}
 }

@@ -29,8 +29,6 @@ public class FlightSearchController {
 		return service.findAllFlightsByAirelineAndDate(airLine, ld);
 	}
 
-	
-	
 	@RequestMapping("/{origin}")
 	public List<Flight> getAllFlightsByOriginAndDate(@PathVariable("origin") String origin,
 			@RequestParam("date") String date) {
@@ -43,7 +41,7 @@ public class FlightSearchController {
 			@PathVariable("origin") String origin) {
 		return service.getAllFlightsByFlightNumAndOrigin(flightNum, origin);
 	}
-
+	
 	@RequestMapping("/{flightNum}/{date}/{time}")
 	public Flight getFlightByFlightNumDateTime(@PathVariable("flightNum") String flightNumber,
 			@PathVariable("date") String flightDate, @PathVariable("time") String flightTime) {
@@ -61,7 +59,4 @@ public class FlightSearchController {
 		}
 		return service.getFlightNumberAndFlightDateAndFlightTime(flightNumber, ldate, localTime);
 	}
-	
-	
-
 }

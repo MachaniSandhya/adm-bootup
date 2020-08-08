@@ -1,5 +1,6 @@
 package com.cts.pss.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,8 +13,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "flight_info")
 public class FlightInfo {
-
-	//private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue
 	@Column(name = "flight_infoid")
@@ -24,12 +23,8 @@ public class FlightInfo {
 	protected String flightType;
 	@Column(name = "numberof_seats")
 	protected int numberofSeats;
-	/*
-	 * @OneToOne(mappedBy = "info", cascade = CascadeType.ALL) protected Flight
-	 * flight;
-	 */
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinTable(name="flights_info",joinColumns= {@JoinColumn(name="flight_infoid")},
 	inverseJoinColumns= {@JoinColumn(name="airline_id")})
 	protected AirlineInfo airLineInfo;

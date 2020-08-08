@@ -2,6 +2,7 @@ package com.cts.pss.entities;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,7 +24,7 @@ public class BookingRecord  {
 	@Column(name = "booking_id")
 	protected long id;
 	@Column(name = "booking_date")
-	protected LocalTime bookingdate;
+	protected LocalDate bookingdate;
 	@Column(name = "destination")
 	protected String destination;
 	@Column(name = "fare")
@@ -38,18 +39,17 @@ public class BookingRecord  {
 	protected String origin;
 	@Column(name = "status")
 	protected String status;
-
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "booking_details", joinColumns = {
-			@JoinColumn(name = "booking_id", referencedColumnName = "booking_id") }, inverseJoinColumns = {
-					@JoinColumn(name = "passenger_id") })
-	protected Set<Passenger> passengers;
+	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinTable(name = "booking_details", joinColumns = { @JoinColumn(name = "booking_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "passenger_id") })
+	protected List<Passenger> passengers;
 
 	public BookingRecord() {
 	}
 
-	public BookingRecord(long id, LocalTime bookingdate, String destination, double fare, LocalDate flightDate,
-			String flightNumber, LocalTime flightTime, String origin, String status, Set<Passenger> passengers) {
+	public BookingRecord(long id, LocalDate bookingdate, String destination, double fare, LocalDate flightDate,
+			String flightNumber, LocalTime flightTime, String origin, String status, List<Passenger> passengers) {
 		super();
 		this.id = id;
 		this.bookingdate = bookingdate;
@@ -146,11 +146,11 @@ public class BookingRecord  {
 		this.id = id;
 	}
 
-	public LocalTime getBookingdate() {
+	public LocalDate getBookingdate() {
 		return bookingdate;
 	}
 
-	public void setBookingdate(LocalTime bookingdate) {
+	public void setBookingdate(LocalDate bookingdate) {
 		this.bookingdate = bookingdate;
 	}
 
@@ -210,11 +210,11 @@ public class BookingRecord  {
 		this.status = status;
 	}
 
-	public Set<Passenger> getPassengers() {
+	public List<Passenger> getPassengers() {
 		return passengers;
 	}
 
-	public void setPassengers(Set<Passenger> passengers) {
+	public void setPassengers(List<Passenger> passengers) {
 		this.passengers = passengers;
 	}
 

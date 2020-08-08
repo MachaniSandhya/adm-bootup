@@ -9,18 +9,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "fare")
 public class Fare {
-//	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
 	@Column(name = "fare_id")
 	protected long id;
 	protected double fare;
 	protected String currency;
-
-	/*
-	 * @OneToOne(mappedBy = "fare", cascade = CascadeType.ALL) protected Flight
-	 * flight;
-	 */
 
 	public Fare() {
 
@@ -32,12 +27,6 @@ public class Fare {
 		this.fare = fare;
 		this.currency = currency;
 	}
-
-	/*
-	 * public Fare(long id, double fare, String currency, Flight flight) { super();
-	 * this.id = id; this.fare = fare; this.currency = currency; this.flight =
-	 * flight; }
-	 */
 
 	public long getId() {
 		return id;

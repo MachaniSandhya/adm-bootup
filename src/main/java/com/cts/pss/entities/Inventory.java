@@ -16,11 +16,6 @@ public class Inventory {
 	protected long id;
 	protected int count;
 
-	/*
-	 * @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy =
-	 * "inv") protected Flight flight;
-	 */
-
 	public Inventory() {
 
 	}

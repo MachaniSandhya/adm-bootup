@@ -10,8 +10,6 @@ import javax.persistence.Table;
 @Table(name = "airline_info")
 public class AirlineInfo {
 
-//	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue
 	@Column(name = "airline_id")
@@ -21,19 +19,8 @@ public class AirlineInfo {
 	@Column(name = "name_of_airline")
 	protected String airlineName;
 
-	// @OneToMany
-	// @JoinTable(name="flights_info",joinColumns= {@JoinColumn(name="airline_id")},
-	// inverseJoinColumns= {@JoinColumn(name="flight_infoid")})
-	// protected Set<FlightInfo> flightInfo;
-
 	public AirlineInfo() {
 	}
-
-	/*
-	 * public AirlineInfo(long id, String logo, String airlineName, Set<FlightInfo>
-	 * flightInfo) { super(); this.id = id; this.logo = logo; this.airlineName =
-	 * airlineName; this.flightInfo = flightInfo; }
-	 */
 
 	public long getId() {
 		return id;

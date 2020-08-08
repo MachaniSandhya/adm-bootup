@@ -1,6 +1,6 @@
 package com.cts.pss.entities;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "passenger")
 public class Passenger {
-	
+
 	@Id
 	@GeneratedValue
 	@Column(name = "passenger_id")
@@ -27,11 +27,9 @@ public class Passenger {
 	protected long mobileNumber;
 	@Column(name = "gender")
 	protected String gender;
-	
-	
 
-	@ManyToOne
-	@JoinColumn(name="booking_id")
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "booking_id")
 	protected BookingRecord bookingRec;
 
 	public Passenger() {
@@ -99,12 +97,10 @@ public class Passenger {
 		this.gender = gender;
 	}
 
-	public BookingRecord getBookingRec() {
-		return bookingRec;
-	}
-
-	public void setBookingRec(BookingRecord bookingRec) {
-		this.bookingRec = bookingRec;
-	}
-
+	/*
+	 * public BookingRecord getBookingRec() { return bookingRec; }
+	 * 
+	 * public void setBookingRec(BookingRecord bookingRec) { this.bookingRec =
+	 * bookingRec; }
+	 */
 }

@@ -5,6 +5,7 @@ public class Search {
 	private String destination;
 	private String date;
 	private String time;
+	private String flightnum;
 
 	public String getOrigin() {
 		return origin;
@@ -37,5 +38,20 @@ public class Search {
 	public void setTime(String time) {
 		this.time = time;
 	}
+
+	public String getFlightnum() {
+		return flightnum;
+	}
+
+	public void setFlightnum(String flightnum) {
+		this.flightnum = flightnum;
+	}
+
+	@Override
+	public String toString() {
+		return "Search [origin=" + origin + ", destination=" + destination + ", date=" + date + ", time=" + time
+				+ ", flightnum=" + flightnum + "]";
+	}
+	
 
 }

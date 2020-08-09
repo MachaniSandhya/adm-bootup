@@ -80,7 +80,6 @@ public class BookingController {
 		data.addAttribute("origin",flight.getOrigin());
 		data.addAttribute("dest",flight.getDestination());
 		data.addAttribute("flightTime",flight.getFlightTime());
-		System.out.println(br.getId());
 		
 		return "SuccessfullBooking";
 	}

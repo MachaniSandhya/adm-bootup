@@ -57,7 +57,7 @@ public class CheckInController {
 			return "checkinInfo";
 		}
 
-		model.addAttribute("id", br.getId());
+		model.addAttribute("username", u.getUsername());
 		return "error_checkin";
 
 	}

@@ -1,5 +1,6 @@
 package com.cts.pss.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,6 +14,7 @@ public class User {
 	protected String lastname;
 	protected String mobile;
 	protected String gender;
+	@Column(name="username",unique=true)
 	protected String username;
 	protected String password;
 	protected String activated;

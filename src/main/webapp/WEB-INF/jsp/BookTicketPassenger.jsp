@@ -5,18 +5,37 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Add  Passenger</title>
+<title>Add Passenger</title>
+<style>
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	border-spacing: 4px;
+	border-style: double;
+}
+
+td, th {
+	border: 2px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #7FFFD4;
+}
+</style>
 </head>
 <body>
-	<form:form
-		action="/bookpassenger?id=${id}"  method="post" modelAttribute="user">
-			<form:errors path="*" />
-		<h4>Add Passenger Details</h4>
-		<table style="border-style: double;">
+	<form:form action="/bookpassenger?id=${id}" method="post"
+		modelAttribute="user">
+		<form:errors path="*" />
+		
+		<table align="center">
+		<caption><Strong style="color: orange">Add Passenger Details</Strong></caption>
 			<tr>
 				<td>FirstName</td>
-				<td><input type="text" name="firstname"/>
-				<td>
+				<td><input type="text" name="firstname">
+				</td>
 			</tr>
 			<tr>
 				<td>LastName</td>
@@ -28,9 +47,10 @@
 			</tr>
 			<tr>
 				<td>MobileNumber</td>
-				<td><input type="text" name="mobile"/></td>
+				<td><input type="text" name="mobile" /></td>
 			</tr>
 			<tr>
+				<td>Add&Book</td>
 				<td><input type="submit" value="Book"></td>
 			</tr>
 		</table>

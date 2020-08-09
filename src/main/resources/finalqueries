@@ -120,6 +120,10 @@ COMMIT;
 INSERT INTO `flight` VALUES (36, 'CHENNAI', '2 hrs 15 mins', '2020-08-21', 'AI-840', '02:12:00', 'DELHI', 37, 2, 38), (39, 'HYDERABAD', '2 hrs 45 mins', '2020-08-21', 'AI-850', '01:15:00', 'DELHI', 40, 3, 41), (42, 'MUMBAI', '2 hrs 50 mins', '2020-08-21', 'AI-860', '02:30:00', 'CHENNAI', 43, 4, 44), (45, 'HYDERABAD', '1 hrs 45 mins', '2020-08-21', 'AI-870', '02:45:00', 'PUNE', 46, 5, 47), (48, 'PORTBLAIR', '3 hrs 00 mins', '2020-08-21', '6E-6684', '03:00:00', 'CHENNAI', 49, 7, 50), (51, 'DELHI', '3 hrs 15 mins', '2020-08-21', '6E-6685', '03:15:00', 'BENGULURU', 52, 8, 53), (54, 'PUNE', '4 hrs 07 mins', '2020-08-21', '6E-6686', '03:15:00', 'DELHI', 55, 9, 56), (57, 'MANGALORE', '3 hrs 30 mins', '2020-08-21', '6E-6687', '03:15:00', 'HYDERABAD', 58, 10, 59), (60, 'AHMADABAD', '6 hrs 00 mins', '2020-08-21', 'I5-755', '04:30:00', 'MUMBAI', 61, 12, 62), (63, 'KOLKATA', '3 hrs 15 mins', '2020-08-21', 'I5-756', '04:45:00', 'HYDERABAD', 64, 13, 65), (66, 'DELHI', '1 hrs 00 mins', '2020-08-21', 'I5-757', '07:45:00', 'KOLKATA', 67, 14, 68), (69, 'MUMBAI', '1 hrs 00 mins', '2020-08-21', 'SG-434', '11:45:00', 'DELHI', 70, 19, 71), (72, 'CHENNAI', '2 hrs 15 mins', '2020-08-21', 'SG-435', '02:45:00', 'DELHI', 73, 20, 74), (75, 'CHENNAI', '2 hrs 15 mins', '2020-08-21', 'UK-830', '10:15:00', 'DELHI', 76, 22, 77), (78, 'CHENNAI', '2 hrs 15 mins', '2020-08-21', 'UK-831', '11:30:00', 'DELHI', 79, 23, 80), (81, 'CHENNAI', '2 hrs 15 mins', '2020-08-21', 'UK-832', '11:55:00', 'DELHI', 82, 24, 83), (84, 'CHENNAI', '2 hrs 15 mins', '2020-08-21', 'UK-833', '11:55:00', 'DELHI', 85, 25, 86), (87, 'CHENNAI', '2 hrs 15 mins', '2020-08-21', '2T-518', '10:15:00', 'DELHI', 88, 27, 89), (90, 'CHENNAI', '2 hrs 15 mins', '2020-08-21', '2T-519', '19:35:00', 'DELHI', 91, 28, 92);
 COMMIT;
 
+URL's:
+======
+app base url :  http://localhost:9085/
+
 http://localhost:9085/search/getAirline?airlineName=Indigo&date=2020-08-21
 
 http://localhost:9085/search/DELHI?date=2020-08-21

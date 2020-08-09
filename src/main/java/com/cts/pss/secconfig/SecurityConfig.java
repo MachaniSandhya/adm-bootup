@@ -29,16 +29,17 @@
   http.authorizeRequests()
   .antMatchers("/bookpassenger").hasAnyRole("ADMIN","USER")
   .antMatchers("/checkininformation").hasAnyRole("ADMIN","USER")
-  .antMatchers("/searchFlight").permitAll()
-  .antMatchers("/flightList").permitAll()
-  .antMatchers("/bookticket").permitAll()
-  .antMatchers("/flightListorder").permitAll()
-  .antMatchers("/registerform").permitAll()
-  .antMatchers("/checkin").permitAll()
-  .antMatchers("/view/flight").permitAll()
-  .antMatchers("/view/flightlist").permitAll()
-  .antMatchers("/view/order/flightlist").permitAll()
-  .antMatchers("/").permitAll().and() .formLogin(); 
+				/*
+				 * .antMatchers("/searchFlight").permitAll()
+				 * .antMatchers("/flightList").permitAll()
+				 * .antMatchers("/bookticket").permitAll()
+				 * .antMatchers("/flightListorder").permitAll()
+				 * .antMatchers("/registerform").permitAll()
+				 * .antMatchers("/checkin").permitAll() .antMatchers("/view/flight").permitAll()
+				 * .antMatchers("/view/flightlist").permitAll()
+				 * .antMatchers("/view/order/flightlist").permitAll()
+				 */
+  .antMatchers("/**").permitAll().and() .formLogin(); 
   http.csrf().disable();
   }
   

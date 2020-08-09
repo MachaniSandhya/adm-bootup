@@ -18,6 +18,8 @@ public class LoginController {
 	@RequestMapping(value = "/adduser")
 	public ModelAndView addUser(@ModelAttribute("userlogin") User user) {
 		ModelAndView mav = new ModelAndView();
+		user.setActivated("true");
+		user.setRoles("ROLE_USER");
 		user = udao.save(user);
 		mav.setViewName("userAdded");
 		mav.addObject("user", user);

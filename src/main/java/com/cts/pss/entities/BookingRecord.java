@@ -11,13 +11,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "booking_record")
-public class BookingRecord  {
-
+public class BookingRecord {
 
 	@Id
 	@GeneratedValue
@@ -39,11 +39,15 @@ public class BookingRecord  {
 	protected String origin;
 	@Column(name = "status")
 	protected String status;
-	
-	@OneToMany(cascade=CascadeType.ALL)
+
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "booking_details", joinColumns = { @JoinColumn(name = "booking_id") }, inverseJoinColumns = {
 			@JoinColumn(name = "passenger_id") })
 	protected List<Passenger> passengers;
+
+	@ManyToOne(cascade= CascadeType.ALL)
+	@JoinColumn(name = "user_id")
+	protected User user;
 
 	public BookingRecord() {
 	}
@@ -136,6 +140,14 @@ public class BookingRecord  {
 		} else if (!status.equals(other.status))
 			return false;
 		return true;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public long getId() {
